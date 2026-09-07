@@ -1,0 +1,15 @@
+{
+  ".git/config": "ecbce567cc5a9e2def5987d0327c5bb3b600762b707c8786c58356f099ff92af",
+  ".git/index": "729484b5193faeeae9b68e15d1438867d8236e94ed689321614c1543f1337cfc",
+  "docs/tasks/P02_20260907_任务资料关联与兼容检查.report.md": "79e3ffd5c88ef41366bceaeef0162f6c3383789ace5fd3d759b3d0b83a8f33db",
+  "docs/tasks/P01_20260907_治理可靠性修复.report.md": "3f813e8b6d698096ba743375eb690421f6a0648e9513d94ee53e1bfff3591668",
+  "docs/tasks/P03_20260907_漏检与证据保护验证.report.md": "cd6aeeb9b6b15ca60ee5252d7ccaa112fbf13e4f090ac245722be100e14b2a26",
+  "data/tasks/P02_20260907_任务资料关联与兼容检查/review-result.json": "f49ad7f6b8d65ea43c923927dd810beda370ac4e6b79134145b37e2dca0a10a9",
+  "data/tasks/P02_20260907_任务资料关联与兼容检查/manifest.json": "adae490b9994dec0aa77aaf890d40a06e94619591d299668d5fc1fc056a57ebb",
+  "data/tasks/P02_20260907_任务资料关联与兼容检查/legacy-policy.json": "29e708ccdacbb330c75e5233d9d883a27bf85de1446413aa45813d9c16f0fd68",
+  "data/tasks/P02_20260907_任务资料关联与兼容检查/review-result-policy.json": "addd11ecccb66ac36b29676344f907aaeded895464e1ff1aba7de72267de2650",
+  "data/tasks/P03_20260907_漏检与证据保护验证/tests.txt": "d87d9381f7620157f87fbfb296b2b23421f74071d26d7f1427719b76c996966c",
+  "data/tasks/P03_20260907_漏检与证据保护验证/baseline.json": "99167ed991299ff5967220a86fde7c02c57e164344ccfb19c1b4b5b963eab364",
+  "data/tasks/P03_20260907_漏检与证据保护验证/manifest.json": "c85444111986e70cf71bfccf5e4e5e4182803698f3fb400c9e31a559a3f3c61d",
+  "data/tasks/P03_20260907_漏检与证据保护验证/task_pairs-P02-baseline.py": "5e19898485173929daaf11db7b2328a0506fa4b4a95c7e5ab2715bb73261ff04"
+}

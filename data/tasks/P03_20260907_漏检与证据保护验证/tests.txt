@@ -1,0 +1,26 @@
+test_invalid_checker_output_is_retained_and_not_overwritten (test_evidence.EvidencePreservationTests.test_invalid_checker_output_is_retained_and_not_overwritten) ... ok
+test_invalid_run_id_creates_no_output (test_evidence.EvidencePreservationTests.test_invalid_run_id_creates_no_output) ... ok
+test_two_runs_and_default_refuses_overwrite (test_evidence.EvidencePreservationTests.test_two_runs_and_default_refuses_overwrite) ... ok
+test_hook_invalid_configuration (test_governance.GovernanceTests.test_hook_invalid_configuration) ... ok
+test_hook_scenarios (test_governance.GovernanceTests.test_hook_scenarios) ... ok
+test_retest_report_explicitly_closes_plan (test_governance.GovernanceTests.test_retest_report_explicitly_closes_plan) ... ok
+test_symbols_all_dirs_and_token_boundaries (test_governance.GovernanceTests.test_symbols_all_dirs_and_token_boundaries) ... ok
+test_symbols_no_objects_success_and_errors (test_governance.GovernanceTests.test_symbols_no_objects_success_and_errors) ... ok
+test_task_pairs_empty_and_config (test_governance.GovernanceTests.test_task_pairs_empty_and_config) ... ok
+test_task_pairs_full_prefix_and_status (test_governance.GovernanceTests.test_task_pairs_full_prefix_and_status) ... ok
+test_template_parity (test_governance.GovernanceTests.test_template_parity) ... ok
+test_body_links_are_not_metadata (test_task_pairs.PairTests.test_body_links_are_not_metadata) ... ok
+test_examples_cannot_create_evidence (test_task_pairs.PairTests.test_examples_cannot_create_evidence) ... ok
+test_index_missing_plan_without_report_is_not_silent (test_task_pairs.PairTests.test_index_missing_plan_without_report_is_not_silent) ... ok
+test_index_plan_link_must_target_tasks_directory (test_task_pairs.PairTests.test_index_plan_link_must_target_tasks_directory) ... ok
+test_index_plan_only_rows_validate_links_without_requiring_reports (test_task_pairs.PairTests.test_index_plan_only_rows_validate_links_without_requiring_reports) ... ok
+test_index_table_explicit_rows_and_ambiguity (test_task_pairs.PairTests.test_index_table_explicit_rows_and_ambiguity) ... ok
+test_metadata_conflict_and_missing (test_task_pairs.PairTests.test_metadata_conflict_and_missing) ... ok
+test_policy_exact_scope_and_validation (test_task_pairs.PairTests.test_policy_exact_scope_and_validation) ... ok
+test_stages_do_not_hide_other_missing_plan (test_task_pairs.PairTests.test_stages_do_not_hide_other_missing_plan) ... ok
+test_state_boundary_and_freeform (test_task_pairs.PairTests.test_state_boundary_and_freeform) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 6.314s
+
+OK

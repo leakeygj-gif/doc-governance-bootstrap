@@ -1,0 +1,85 @@
+{
+  "task": "P04_20260907_任务集中目录",
+  "plan": "docs/tasks/P04_20260907_任务集中目录/plan.md",
+  "report": "docs/tasks/P04_20260907_任务集中目录/report.md",
+  "artifacts": [
+    {
+      "path": "docs/tasks/P04_20260907_任务集中目录/tests.txt",
+      "purpose": "全套测试结果",
+      "sha256": "b471b406e225a97983203b31f4b866f62e9a1f644ba5bafa5f1e7accc39b3639",
+      "parameters": {},
+      "inputs": [],
+      "outputs": [],
+      "storage": {
+        "local_exists": true,
+        "external_archive_verified": false,
+        "git_status": "本轮内容未提交"
+      }
+    },
+    {
+      "path": "docs/tasks/P04_20260907_任务集中目录/baseline.json",
+      "purpose": "开工证据边界",
+      "sha256": "5a4edd37bab97c3e3dc3a39609f4efe55bd8dc8a9efeaf368136aa1f050c2377",
+      "parameters": {},
+      "inputs": [],
+      "outputs": [],
+      "storage": {
+        "local_exists": true,
+        "external_archive_verified": false,
+        "git_status": "本轮内容未提交"
+      }
+    },
+    {
+      "path": "docs/tasks/P04_20260907_任务集中目录/task_pairs-P03-baseline.py",
+      "purpose": "P03工具可恢复快照",
+      "sha256": "ba46b17bc4b5e323e86b9c0b88f04e9455590e2170f27628a09bc4542b2f099a",
+      "parameters": {},
+      "inputs": [],
+      "outputs": [],
+      "storage": {
+        "local_exists": true,
+        "external_archive_verified": false,
+        "git_status": "本轮内容未提交"
+      }
+    },
+    {
+      "path": "tools/task_pairs.py",
+      "purpose": "共享任务检查器",
+      "sha256": "6303a8f2e7800ddf171d9baee2ebfcc1342150511f2529f19770e271109210ef",
+      "parameters": {},
+      "inputs": [],
+      "outputs": [],
+      "storage": {
+        "local_exists": true,
+        "external_archive_verified": false,
+        "git_status": "本轮内容未提交"
+      }
+    },
+    {
+      "path": "tests/test_task_layout.py",
+      "purpose": "新旧布局隔离验证",
+      "sha256": "8d32790a8c8420c5b5007e4d0ba8db3f866ccca973d2fe0615088671e0e8ec23",
+      "parameters": {},
+      "inputs": [],
+      "outputs": [],
+      "storage": {
+        "local_exists": true,
+        "external_archive_verified": false,
+        "git_status": "本轮内容未提交"
+      }
+    },
+    {
+      "path": "tests/test_governance.py",
+      "purpose": "守卫与既有工具回归",
+      "sha256": "5e2bd8642d54709c8ad70b92896139922c1aee3e1ee9a034e490a0a0003e8137",
+      "parameters": {},
+      "inputs": [],
+      "outputs": [],
+      "storage": {
+        "local_exists": true,
+        "external_archive_verified": false,
+        "git_status": "本轮内容未提交"
+      }
+    }
+  ]
+}

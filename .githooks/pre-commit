@@ -1,0 +1,83 @@
+#!/bin/sh
+# 文档同步守卫（第 1 层：阻断）
+#   源码改动，必须伴随 docs/HANDOFF.md 暂存新增或修改。
+#   仅检查文件变化；对应记录的正确性仍需人工审阅。
+#
+# 第 2 层（改到某模块提醒检查对应 docs/specs/ 文档）可自行按需补——
+# 待 docs/specs/ 有实际内容后，参照该目录 README 补一份模块映射，
+# 在下方"第 2 层"处添加 remind() 调用即可，写法见范例注释。
+#
+# 安装：git config core.hooksPath .githooks（仓库级配置，所有分支共用同一路径，
+#       但 hook 文件内容本身跟着分支走，因为它是一个普通的受版本控制文件）
+# 绕过：git commit --no-verify  —— 那是一个决定，不是遗忘
+
+# 源码匹配规则——按你的项目改这一行，例如：
+#   Python:      '^src/.*\.py$'
+#   TypeScript:  '^src/.*\.tsx?$'
+#   Go:          '^(cmd|internal|pkg)/.*\.go$'
+SRC_PATTERN='^(SKILL\.md|references/.*\.md|assets/templates/.*|tools/.*\.py|docs/tasks/.*\.py|tests/.*\.py|\.githooks/pre-commit)$'
+
+# 未配置或非法正则必须阻断，不能把配置失败误当作没有源码变化。
+if [ -z "$SRC_PATTERN" ]; then
+  echo 'ERROR 源码匹配规则尚未配置' >&2
+  exit 2
+fi
+case "$SRC_PATTERN" in
+  *'{{'*) echo 'ERROR 源码匹配规则包含未替换占位符' >&2; exit 2 ;;
+esac
+printf '%s\n' '' | grep -E "$SRC_PATTERN" >/dev/null 2>&1
+pattern_status=$?
+if [ "$pattern_status" -gt 1 ]; then
+  echo 'ERROR 源码匹配规则不是有效正则' >&2
+  exit 2
+fi
+
+# 禁用重命名折叠，使旧路径删除与新路径添加都参与范围匹配。
+# core.quotePath=false 保留中文路径；常规仓库文件名按行匹配。
+staged=$(git -c core.quotePath=false diff --cached --no-renames --name-only --diff-filter=ACDMRT) || exit 2
+handoff_changed=$(git diff --cached --no-renames --name-only --diff-filter=AM -- docs/HANDOFF.md) || exit 2
+
+src_changed=$(printf '%s\n' "$staged" | grep -E "$SRC_PATTERN")
+if [ -n "$src_changed" ]; then
+  if [ "$handoff_changed" != "docs/HANDOFF.md" ]; then
+    echo ""
+    echo "✗ 提交被拒绝：改了源码但没有写交接日志"
+    echo ""
+    echo "  本次提交包含以下源码改动："
+    echo "$src_changed" | sed 's/^/    /'
+    echo ""
+    echo "  但 docs/HANDOFF.md 没有暂存的新增或修改。"
+    echo ""
+    echo "  AGENTS.md「交接日志规则」：任何进入 git 提交的源码改动，"
+    echo "  提交前必须在 docs/HANDOFF.md 有对应记录。"
+    echo ""
+    echo "  写法（无 Task 时的完整五段）："
+    echo "    ## <YYYY-MM-DD> — <任务简称>"
+    echo "    - **改了什么**：结论，不写实现细节"
+    echo "    - **为什么**：决策记录，这一段不能省"
+    echo "    - **验证**：一句话说不清 → 说明该立 Task"
+    echo "    - **下一步**："
+    echo "    - **风险/未完成**："
+    echo ""
+    echo "  确实不需要记录时：git commit --no-verify"
+    echo ""
+    exit 1
+  fi
+fi
+
+# ---------- 第 2 层：specs 同步提醒（不阻断）----------
+# 范例（取消注释并按项目实际模块调整）：
+#
+# remind() {
+#   hits=$(echo "$staged" | grep -E "$1")
+#   if [ -n "$hits" ]; then
+#     if ! echo "$staged" | grep -qF "$2"; then
+#       echo "  ⚠ 改动涉及：$(echo "$hits" | tr '\n' ' ')"
+#       echo "    请检查是否需要同步 $2"
+#       echo ""
+#     fi
+#   fi
+# }
+# remind '^src/auth/' 'docs/specs/认证与会话.md'
+
+exit 0
